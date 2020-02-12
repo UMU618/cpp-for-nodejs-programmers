@@ -13,7 +13,7 @@ class Timer {
   void wait();
 
  private:
-  boost::asio::io_service io;
+  boost::asio::io_context io;
   std::vector<boost::asio::steady_timer> timers;
   size_t count;
 };
