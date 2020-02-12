@@ -1,0 +1,15 @@
+cmake_minimum_required (VERSION 3.5)
+project (set_timeout)
+
+add_executable(set_timeout set_timeout.cc)
+set_property(TARGET set_timeout PROPERTY CXX_STANDARD 17)
+target_compile_features(set_timeout PRIVATE cxx_auto_type)
+
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+find_package(Boost 1.71.0)
+if(Boost_FOUND)
+  include_directories(${Boost_INCLUDE_DIRS})
+  target_link_libraries(set_timeout ${Boost_LIBRARIES})
+endif()
